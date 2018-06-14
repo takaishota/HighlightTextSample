@@ -63,6 +63,9 @@ class HighlightTextView @JvmOverloads constructor(context: Context, attrs: Attri
                 val inflater = mode?.menuInflater
                 inflater?.inflate(R.menu.text_selection, menu)
                 menu?.removeItem(android.R.id.selectAll)
+                menu?.removeItem(android.R.id.copy)
+                menu?.removeItem(android.R.id.shareText)
+                menu?.removeItem(android.R.id.textAssist)
 
                 return true
             }
