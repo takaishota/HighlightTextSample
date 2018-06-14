@@ -1,6 +1,5 @@
 package com.example.android.st0124.highlighttextsample
 
-import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -60,7 +59,6 @@ class HighlightTextView @JvmOverloads constructor(context: Context, attrs: Attri
 
     private fun setupTextSelection() {
         this.customSelectionActionModeCallback = object : ActionMode.Callback2() {
-            @SuppressLint("ResourceType")
             override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
                 val inflater = mode?.menuInflater
                 inflater?.inflate(R.menu.text_selection, menu)
