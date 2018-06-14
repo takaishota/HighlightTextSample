@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/copy"
+        android:title="コピー"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/share"
+        android:title="シェア"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/highlight"
+        android:title="ハイライト"
+        app:showAsAction="always" />
+</menu>

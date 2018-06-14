@@ -10,7 +10,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupTextView()
-        setupButton()
     }
 
     fun setupTextView() {
@@ -18,11 +17,4 @@ class MainActivity : AppCompatActivity() {
 //        textView.highlightColor = Color.parseColor("red")
 //        ColorTextViewHandles.colorHandles(textView, Color.parseColor("red"))
     }
-
-    fun setupButton() {
-        button.setOnClickListener {
-            textView.setHighlight()
-        }
-    }
-
 }
