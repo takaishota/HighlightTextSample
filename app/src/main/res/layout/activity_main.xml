@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:lineSpacingExtra="8sp"
-        android:text="手や腕、肩、首などのだるさや痛み、しびれなどがしつこく残る病気です。同じ作業を繰り返すような業務に従事している労働者がかかりやすいとされています。具体的には、タイピングを多く行う人、工場で作業する人、調理をする人など多くの人が当てはまります。症状はどのような仕事をしているかによって異なりますが、手指、手関節、腕、肘、肩などのしつこいだるさ、痛み、しびれなどが見られます。診断するために特別な検査があるわけではなく、生活環境の問診から頚肩腕症候群は診断されます。他の病気との区別のために必要であれば、画像検査（レントゲン、CT、MRIなど）や採血検査なども行われることがあります。治療としては、まずは仕事などによる作業の負担を減らすことが最も重要です。その他、労働環境を整える、定期的な運動で疲れをとる、職場の人や家族に状況を理解してもらう、十分な睡眠をとる、痛み止めや緊張をほぐす薬を使用するなどが考えられます。頚肩腕症候群が心配な方や治療したい方は、会社に産業医がいればまずはそちらで相談してください。いなければ、整形外科や一般内科を受診してください。"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+        <com.example.android.st0124.highlighttextsample.HighlightTextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:lineSpacingMultiplier="1.5"
+            android:text="手や腕、肩、首などのだるさや痛み、しびれなどがしつこく残る病気です。同じ作業を繰り返すような業務に従事している労働者がかかりやすいとされています。具体的には、タイピングを多く行う人、工場で作業する人、調理をする人など多くの人が当てはまります。症状はどのような仕事をしているかによって異なりますが、手指、手関節、腕、肘、肩などのしつこいだるさ、痛み、しびれなどが見られます。診断するために特別な検査があるわけではなく、生活環境の問診から頚肩腕症候群は診断されます。他の病気との区別のために必要であれば、画像検査（レントゲン、CT、MRIなど）や採血検査なども行われることがあります。治療としては、まずは仕事などによる作業の負担を減らすことが最も重要です。その他、労働環境を整える、定期的な運動で疲れをとる、職場の人や家族に状況を理解してもらう、十分な睡眠をとる、痛み止めや緊張をほぐす薬を使用するなどが考えられます。頚肩腕症候群が心配な方や治療したい方は、会社に産業医がいればまずはそちらで相談してください。いなければ、整形外科や一般内科を受診してください。"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="37dp"
+            android:text="ハイライト"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

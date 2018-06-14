@@ -9,6 +9,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        textView.setTextIsSelectable(true)
+        setupTextView()
+        setupButton()
     }
+
+    fun setupTextView() {
+        textView.setTextIsSelectable(true)
+//        textView.highlightColor = Color.parseColor("red")
+//        ColorTextViewHandles.colorHandles(textView, Color.parseColor("red"))
+    }
+
+    fun setupButton() {
+        button.setOnClickListener {
+            textView.setHighlight()
+        }
+    }
+
 }
