@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
@@ -36,11 +37,21 @@ class HighlightTextView @JvmOverloads constructor(context: Context, attrs: Attri
         selEndIndex = selEnd
     }
 
-    fun setHighlight() {
+    fun setHighlight(startIndex: Int, endIndex: Int, selectedText: String = "") {
         val sb = SpannableStringBuilder(text)
-        sb.setSpan(BackgroundColorSpan(Color.YELLOW), selStartIndex, selEndIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        sb.setSpan(BackgroundColorSpan(Color.YELLOW), startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         text = sb
         clearFocus()
+    }
+
+    fun clearHighlight() {
+        HighlightRepository().deleteAll()
+
+        val ss = text as SpannableString
+        val spans = ss.getSpans(0, text.length, BackgroundColorSpan::class.java)
+        spans.forEach {
+            ss.removeSpan(it)
+        }
     }
 
     fun shareAction(text: String) {
@@ -93,7 +104,7 @@ class HighlightTextView @JvmOverloads constructor(context: Context, attrs: Attri
 
                     R.id.highlight -> {
                         storeHighlight()
-                        setHighlight()
+                        setHighlight(selStartIndex, selEndIndex)
                         return true
                     }
                 }

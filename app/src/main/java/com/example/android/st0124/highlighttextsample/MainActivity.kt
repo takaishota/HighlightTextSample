@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.android.st0124.highlighttextsample.util.HighlightRepository
 import io.realm.Realm
-import io.realm.RealmConfiguration
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,9 +14,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupRealm()
         setupTextView()
-        setupAllHighlight()
-
+        setupButton()
+        setupHighlights()
     }
+
+    override fun onStart() {
+        super.onStart()
+        setupHighlights()
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()
@@ -35,8 +40,19 @@ class MainActivity : AppCompatActivity() {
 //        ColorTextViewHandles.colorHandles(textView, Color.parseColor("red"))
     }
 
-    private fun setupAllHighlight() {
+    private fun setupHighlights() {
         val results = HighlightRepository().getAll(Highlight::class)
         println("results $results")
+        results.forEach {
+            textView.setHighlight(it.startIndex, it.endIndex)
+        }
     }
+
+    fun setupButton() {
+        clearButton.setOnClickListener {
+            textView.clearHighlight()
+        }
+    }
+
+
 }
