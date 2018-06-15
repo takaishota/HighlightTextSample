@@ -13,6 +13,8 @@ import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import com.example.android.st0124.highlighttextsample.util.HighlightRepository
+import java.util.*
 
 
 class HighlightTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : TextView(context, attrs, defStyleAttr) {
@@ -90,6 +92,7 @@ class HighlightTextView @JvmOverloads constructor(context: Context, attrs: Attri
                     }
 
                     R.id.highlight -> {
+                        storeHighlight()
                         setHighlight()
                         return true
                     }
@@ -101,5 +104,10 @@ class HighlightTextView @JvmOverloads constructor(context: Context, attrs: Attri
                 println("onDestroyActionMode")
             }
         }
+    }
+
+    private fun storeHighlight() {
+        val highlight = Highlight(UUID.randomUUID().toString(), text.substring(selStartIndex, selEndIndex), selStartIndex, selEndIndex, Date())
+        HighlightRepository().store(highlight)
     }
 }
