@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupTextView() {
         textView.setTextIsSelectable(true)
-//        textView.highlightColor = Color.parseColor("red")
-//        ColorTextViewHandles.colorHandles(textView, Color.parseColor("red"))
     }
 
     private fun setupHighlights() {
